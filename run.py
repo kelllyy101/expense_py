@@ -1,10 +1,13 @@
 from expense import Expense
+import csv
+import os
+
 
 def main():
     print(f"Running Expense Tracker!")
     expense = get_users_expense()
     print(expense)
-    save_expense_to_file()
+    save_expense_to_file(expense)
     summarise_expenses()
 
 def get_users_expense():
@@ -36,8 +39,22 @@ def get_users_expense():
         break
 
 
-def save_expense_to_file():
-    print(f"Saving User Expense")
+def save_expense_to_file(expense):
+     file_path = "expenses.csv"
+
+    # Check if the file exists, and if not, create the file and write the header row
+    if not os.path.exists(file_path):
+        with open(file_path, mode='w', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(["Expense Name", "Category", "Amount"])
+
+    # Write the expense data to the CSV file
+    with open(file_path, mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow([expense.name, expense.category, expense.amount])
+
+    print(f"Expense data saved to {file_path}.")
+    print(f"Saving User Expense: {expense}")
 
 def summarise_expenses():
     print(f"Summarising User Expense")
