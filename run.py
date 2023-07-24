@@ -1,6 +1,9 @@
+from expense import Expense
+
 def main():
     print(f"Running Expense Tracker!")
-    get_users_expense()
+    expense = get_users_expense()
+    print(expense)
     save_expense_to_file()
     summarise_expenses()
 
@@ -23,7 +26,10 @@ def get_users_expense():
         selected_index = int(input("Enter a category number {value_range}: ")) - 1
 
         if selected_index in range(len(expense_categories)):
-            break
+            selected_category = expense_categories[selected_index]
+            new_expense = Expense(name=expense_category, category=selected_category, amount=expense_amount
+            )
+            return new_expense
         else:
             print("Category does not exist. Please try again!")
 
