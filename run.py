@@ -16,6 +16,19 @@ def get_users_expense():
 
     while True:
         print("Select a category: ")
+        for i, category_name in enumerate(expense_categories):
+            print(f"{i + 1}. {category_name}")
+
+        value_range = f"[1 - {len(expense_categories)}]"
+        selected_index = int(input("Enter a category number {value_range}: ")) - 1
+
+        if selected_index in range(len(expense_categories)):
+            break
+        else:
+            print("Category does not exist. Please try again!")
+
+        break
+
 
 def save_expense_to_file():
     print(f"Saving User Expense")
