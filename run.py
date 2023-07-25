@@ -40,11 +40,8 @@ def get_users_expense():
 
 
 def save_expense_to_file(expense):
-     file_path = "expenses.csv"
-
-    # Check if the file exists, and if not, create the file and write the header row
-    if not os.path.exists(file_path):
-        with open(file_path, mode='w', newline='') as file:
+    file_path = "expenses.csv"
+    with open(file_path, mode='w', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(["Expense Name", "Category", "Amount"])
 
@@ -52,12 +49,33 @@ def save_expense_to_file(expense):
     with open(file_path, mode='a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([expense.name, expense.category, expense.amount])
+        lines = f.readlines()
+        for line in lines:
+            expense_name, expense_amount, expense_category = line.strip().split(",")
+            print(expense_name, expense_amount, expense_category)
 
     print(f"Expense data saved to {file_path}.")
     print(f"Saving User Expense: {expense}")
 
-def summarise_expenses():
-    print(f"Summarising User Expense")
+def summarise_expenses(file_path):
+    print("Summarising User Expense")
+    expenses: list[Expense] = []
+    with open(file_path, "r") as f:
+        lines = f.readlines()
+        for line in lines:
+            expense_name, expense_amount, expense_category = line.strip().split(",")
+            line_expense = Expense (
+                name=expense_name,
+                amount=float(expense_amount),
+                category=expense_category,
+            )
+    
+    amount_by_category = {}
+    for expense in expenses:
+        key = expense.category
+        if key in amount_by_category:
+            amount_by_category[key] += expense.amount
+      
 
 if __name__ =="__main__":
     main()
