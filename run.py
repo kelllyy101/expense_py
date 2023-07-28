@@ -41,23 +41,14 @@ def get_users_expense():
         else:
             print("Category does not exist. Please try again!")
 
-        break
+            break
 
 
 def save_expense_to_file(expense):
     file_path = "expenses.csv"
-    with open(file_path, mode='w', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow(["Expense Name", "Category", "Amount"])
-
-    # Write the expense data to the CSV file
     with open(file_path, mode='a', newline='') as file:
         writer = csv.writer(file)
         writer.writerow([expense.name, expense.category, expense.amount])
-        lines = f.readlines()
-        for line in lines:
-            expense_name, expense_amount, expense_category = line.strip().split(",")
-            print(expense_name, expense_amount, expense_category)
 
     print(f"Expense data saved to {file_path}.")
     print(f"Saving User Expense: {expense}")
@@ -66,10 +57,10 @@ def summarise_expenses(file_path, budget):
     print("Summarising User Expense")
     expenses: list[Expense] = []
     with open(file_path, "r") as f:
-        lines = f.readlines()
+        lines = file_path.readlines()
         for line in lines:
             expense_name, expense_amount, expense_category = line.strip().split(",")
-            line_expense = Expense (
+            line_expense = Expense(
                 name=expense_name,
                 amount=float(expense_amount),
                 category=expense_category,
@@ -95,7 +86,6 @@ def summarise_expenses(file_path, budget):
     current_date = datetime.now()
     _, total_days_in_month = calendar.monthrange(current_date.year, current_date.month)
     remaining_days = total_days_in_month - current_date.day
-    return remaining_days
     print("Remaining days in the current month:", remaining_days)
 
     daily_budget = remaining_budget / remaining_days
