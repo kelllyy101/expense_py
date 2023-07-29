@@ -13,7 +13,6 @@ def main():
     file_path = "expenses.csv"
     budget = 1500
     save_expense_to_file(expense)
-    summarise_expenses(file_path, budget)
 
 def get_users_expense():
     print("Getting Users Expense")
@@ -57,11 +56,11 @@ def summarise_expenses(file_path, budget):
     print("Summarising User Expense")
     expenses: list[Expense] = []
     with open(file_path, "r") as f:
-        lines = file_path.readlines()
+        lines = f.readlines()
         for line in lines:
-            expense_name, expense_amount, expense_category = line.strip().split(",")
+            expense_category, expense_amount, expense_category = line.strip().split(",")
             line_expense = Expense(
-                name=expense_name,
+                name=expense_category,
                 amount=float(expense_amount),
                 category=expense_category,
             )
@@ -91,6 +90,22 @@ def summarise_expenses(file_path, budget):
     daily_budget = remaining_budget / remaining_days
     print(f"Budget per day: ${daily_budget:.2f}")
       
+def get_expenses_by_category(file_path):
+    print("Getting Expenses by Category")
+    expenses_by_category = {}
+    with open(file_path, "r") as f:
+        lines = f.readlines()
+        for line in lines:
+            expense_name, expense_amount, expense_category = line.strip().split(",")
+            expense_amount = float(expense_amount)
+            if expense_category in expenses_by_category:
+                expenses_by_category[expense_category] += expense_amount
+            else:
+                expenses_by_category[expense_category] = expense_amount
+
+    print("Total Expenses by Category:")
+    for category, total_amount in expenses_by_category.items():
+        print(f"{category}: ${total_amount:.2f}")
 
 if __name__ =="__main__":
     main()
