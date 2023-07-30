@@ -10,8 +10,6 @@ budget = 1500
 def main():
     print(f"Running Expense Tracker!")
     expense = get_users_expense()
-    file_path = "expenses.csv"
-    budget = 1500
     save_expense_to_file(expense)
 
 def get_users_expense():
@@ -30,7 +28,7 @@ def get_users_expense():
             print(f"{i + 1}. {category_name}")
 
         value_range = f"[1 - {len(expense_categories)}]"
-        selected_index = int(input("Enter a category number {value_range}: ")) - 1
+        selected_index = int(input(f"Enter a category number {value_range}: ")) - 1
 
         if selected_index in range(len(expense_categories)):
             selected_category = expense_categories[selected_index]
@@ -58,12 +56,12 @@ def summarise_expenses(file_path, budget):
     with open(file_path, "r") as f:
         lines = f.readlines()
         for line in lines:
-            expense_category, expense_amount, expense_category = line.strip().split(",")
-            line_expense = Expense(
-                name=expense_category,
-                amount=float(expense_amount),
-                category=expense_category,
-            )
+            expense_category, expense_amount, expense_categories = line.strip().split(",")
+            #line_expense = Expense(
+                #name=expense_category,
+                #amount=float(expense_amount),
+                #category=expense_category,
+            #)
     
     amount_by_category = {}
     for expense in expenses:
