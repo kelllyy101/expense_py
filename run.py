@@ -80,8 +80,6 @@ def summarise_expenses(file_path, budget):
     print(f"You've spent {total_spent:.2f} this month!")
 
     remaining_budget = budget - total_spent
-    print(f"You have {remaining_budget:.2f} this month!")
-
     current_date = datetime.now()
     _, total_days_in_month = calendar.monthrange(current_date.year, current_date.month)
     remaining_days = total_days_in_month - current_date.day
@@ -89,6 +87,25 @@ def summarise_expenses(file_path, budget):
 
     daily_budget = remaining_budget / remaining_days
     print(f"Budget per day: ${daily_budget:.2f}")
+    #print(f"You have {remaining_budget:.2f} this month!")
+    if remaining_budget >= 0:
+        print(f"You have 💰 \033[92m{remaining_budget}\033[0m this month!")  # Green color
+        print(f"Budget per day: \033[92m{daily_budget}\033[0m")  # Green color
+    else:
+        print(f"You have 💰 \033[91m-{remaining_budget}\033[0m this month!")  # Red color
+        print("You've exceeded your budget!")  # Additional message for over-budget
+        print(f"Budget per day: \033[91m{daily_budget}\033[0m")  # Red color
+
+
+#    
+#     current_date = datetime.now()
+#     _, total_days_in_month = calendar.monthrange(current_date.year, current_date.month)
+#     remaining_days = total_days_in_month - current_date.day
+#     print("Remaining days in the current month:", remaining_days)
+
+#     daily_budget = remaining_budget / remaining_days
+#     print(f"Budget per day: ${daily_budget:.2f}") 
+#     
       
 def get_expenses_by_category(file_path):
     print("Getting Expenses by Category")
