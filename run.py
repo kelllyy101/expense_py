@@ -20,7 +20,7 @@ def get_users_expense():
     print(f"You've entered {expense_name}, {expense_amount}")
 
     expense_categories = [
-        "🍔 Food", "🏠 House", "🚇 Transsport", "💊 Health", "🚙 Car", "👕 Clothes", "🎉 Fun", "💸 Bills", "🐶 Pets", "🍴 Restaurants"
+        "🍔 Food", "🏠 House", "🚇 Transport", "💊 Health", "🚙 Car", "👕 Clothes", "🎉 Fun", "💸 Bills", "🐶 Pets", "🍴 Restaurants"
     ]
 
     while True:
@@ -88,6 +88,14 @@ def summarise_expenses(file_path, budget):
     daily_budget = remaining_budget / remaining_days
     print(f"Budget per day: ${daily_budget:.2f}")
     print(f"You have {remaining_budget:.2f} this month!")
+
+    while daily_budget >= 20:
+        print(f"Well done for staying in budget!")
+    else:
+        print("You've exceeded your budget!")
+        print(f"Budget per day: \033[91m{daily_budget}\033[0m 📅")
+
+
 
 
 
