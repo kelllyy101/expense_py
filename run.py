@@ -62,8 +62,8 @@ def summarise_expenses(file_path, budget):
             amount = float(amount)
             line_expense = Expense(
                 name=name,
-                amount=amount,
                 category=category,
+                amount=amount,
             )
             expenses.append(line_expense)
     
@@ -96,8 +96,34 @@ def summarise_expenses(file_path, budget):
         print(f"Budget per day: \033[91m{daily_budget}\033[0m 📅")
 
 
+def view_expenses():
+    # Code to view expenses
+    pass
 
+def adjust_budget():
+    # Code to adjust budget
+    pass
 
+while True:
+    print("\nExpense Tracker Menu:")
+    print("1. Add Expense")
+    print("2. View Expenses")
+    print("3. Adjust Budget")
+    print("4. Exit Tracker")
+
+    choice = input("Enter your choice (1/2/3/4): ")
+
+    if choice == "1":
+        add_expense()
+    elif choice == "2":
+        view_expenses()
+    elif choice == "3":
+        adjust_budget()
+    elif choice == "4":
+        print("Exiting Expense Tracker. Goodbye!")
+        break
+    else:
+        print("Invalid choice. Please choose a valid option (1/2/3/4).")
 
     # if remaining_days != 0:
     #     daily_budget = remaining_budget / remaining_days
@@ -111,11 +137,9 @@ def summarise_expenses(file_path, budget):
     #     else:
     #         daily_budget = 0
     #         print("Spend all your 💲💲💲")
-    #         print(f"You have 💰 \033[91m-{remaining_budget}\033[0m this month!")  # Red color
+    #         print(f"You have 💰 this month!")  # Red color
     #         print("You've exceeded your budget!")
     #         print(f"Budget per day: \033[91m{daily_budget}\033[0m 📅")  # Red colo
-
-
 
 
 #    
