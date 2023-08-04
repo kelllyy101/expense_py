@@ -74,13 +74,13 @@ ExpensePy Tracker CLI is a command-line tool designed to help users efficiently 
 #### Site Goals
 Site Goals:
 
-1. Efficient Expense Tracking: The primary goal of the Expense Tracker CLI is to provide users with a streamlined and efficient way to track their expenses. Users should be able to easily record their expenditures, categorize them, and view a summary of their spending patterns.
+1. Efficient Expense Tracking: The primary goal of the Expense Tracker CLI is to provide users with a streamlined and efficient way to track their expenses. Users should be able to easily record their expenditures, categorise them, and view a summary of their spending patterns.
 
 2. Simplified Budget Management: The tool aims to simplify budget management for individuals and businesses alike. Users can set budget limits for different expense categories and receive notifications when they are nearing or exceeding these limits.
 
-3. Customizable Categories: The Expense Tracker CLI offers the flexibility to create custom expense categories to align with users' specific financial needs and preferences. This allows for more accurate expense tracking and analysis.
+3. Customisable Categories: The Expense Tracker CLI offers the flexibility to create custom expense categories to align with users' specific financial needs and preferences. This allows for more accurate expense tracking and analysis.
 
-4. Insightful Expense Reports: The tool generates detailed and insightful expense reports, providing users with a comprehensive overview of their spending habits over specific time periods. These reports can help users identify areas where they can cut back or optimize their expenses.
+4. Insightful Expense Reports: The tool generates detailed and insightful expense reports, providing users with a comprehensive overview of their spending habits over specific time periods. These reports can help users identify areas where they can cut back or optimise their expenses.
 
 5. Data Security and Privacy: Ensuring the security and privacy of users' financial data is a top priority. The Expense Tracker CLI implements robust data encryption and protection measures to safeguard sensitive information.
 
@@ -88,7 +88,7 @@ Site Goals:
 
 7. User-Friendly Interface: The CLI offers a user-friendly interface with clear instructions and intuitive commands, making it accessible to individuals with varying levels of technical expertise.
 
-8. Offline Accessibility: The Expense Tracker CLI allows users to manage their expenses even in offline mode. Data synchronization and updates can occur once the user regains an internet connection.
+8. Offline Accessibility: The Expense Tracker CLI allows users to manage their expenses even in offline mode. Data synchronisation and updates can occur once the user regains an internet connection.
 
 9. Open-Source and Extensible: The tool is developed as an open-source project, encouraging contributions from the community and enabling users to extend its functionality to suit their unique needs.
 
@@ -104,7 +104,7 @@ User Stories for the Expense Tracker CLI:
 
 3. As a user, I want the Expense Tracker CLI to be responsive and adapt to different devices, including mobile phones, tablets, and desktop computers. This ensures that I can conveniently track my expenses regardless of the device I am using.
 
-4. As a user, I want to be able to register an account with the Expense Tracker CLI so that I can personalize my expense tracking experience. Having an account would enable me to store and access my expense data securely.
+4. As a user, I want to be able to register an account with the Expense Tracker CLI so that I can personalise my expense tracking experience. Having an account would enable me to store and access my expense data securely.
 
 5. As a user, I want to search and filter expenses based on custom criteria to find specific transactions quickly. The CLI should support filtering by date, category, amount range, and other relevant parameters.
 
@@ -124,7 +124,7 @@ The Expense Tracker CLI aims to provide a comprehensive and user-friendly tool f
 
 2. Expense Management: Users can add, edit, and delete individual expense records. Each expense will include details such as the date, amount, category, description, and any additional notes.
 
-3. Budget Categories: Users can set up custom budget categories to organize their expenses effectively. The CLI will allow users to add, edit, and delete budget categories as needed.
+3. Budget Categories: Users can set up custom budget categories to organise their expenses effectively. The CLI will allow users to add, edit, and delete budget categories as needed.
 
 4. Expense Reports: Generate detailed reports that provide insights into spending patterns, including summaries based on categories, time periods, and total expenses.
 
@@ -138,23 +138,26 @@ The Expense Tracker CLI aims to provide a comprehensive and user-friendly tool f
 
 9. Budget Alerts: Optionally, provide users with budget alerts or notifications when their spending approaches or exceeds predefined limits.
 
-10. Data Visualization: Consider incorporating data visualization options to present expense data graphically, offering users a visual representation of their financial data.
+10. Data Visualisation: Consider incorporating data visualisation options to present expense data graphically, offering users a visual representation of their financial data.
 
 By focusing on these features, the Expense Tracker CLI will offer a powerful and versatile expense management solution for users to maintain control over their financial activities and make informed decisions regarding their spending habits.
 
 ## The Structure Plane
 
 ### Existing Features
-- Budget Tracker
-- User sign-up functionality.
-- Sign in / Sign out functionality.
-- Profile page showing basic user information and events created by the user with modification ability.
+- User-friendly CLI interface
+- Expense entry with amount, category, and name
+- Budget tracking with remaining budget and daily budget calculation
+- Expense summary by category
+- Data persistence with CSV file storage
 
-- Site-wide footer containing contact information, Copyright info, and Site Links.
 
 ### Future Features
 
-_(Include any planned features that are not yet implemented)_
+- User sign-up functionality.
+- Sign in / Sign out functionality.
+- Profile page showing basic user information and events created by the user with modification ability.
+- Site-wide footer containing contact information, Copyright info, and Site Links.
 
 ## Technologies
 
@@ -166,6 +169,7 @@ _(Include any planned features that are not yet implemented)_
 - Flask (Python Framework)
 - EmailJS
 - Heroku
+- GitHub
 
 ## Testing
 
@@ -181,7 +185,7 @@ _(Include a summary of the test results)_
 
 ### Project Creation
 
-_(Include information about how the project was created and set up)_
+The Expense Tracker is a CLI-based budget management application written in Python. It allows users to track their expenses, categorize them, and monitor their budget for the month. Users can input the amount spent, the expense category, and a name for the expense, and the application will calculate the remaining budget for the month and the daily budget for the rest of the month.
 
 ### GitHub Pages
 

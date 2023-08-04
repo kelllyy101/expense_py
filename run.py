@@ -11,6 +11,9 @@ def main():
     print(f"Running Expense Tracker!")
     expense = get_users_expense()
     save_expense_to_file(expense)
+    print(expense)
+    print(file_path)
+    print(budget)
     summarise_expenses(file_path, budget)
 
 def get_users_expense():
@@ -65,8 +68,10 @@ def summarise_expenses(file_path, budget):
                 category=category,
                 amount=amount,
             )
+            print(line_expense)
             expenses.append(line_expense)
-    
+            print(expenses)
+
             if category in amount_by_category:
                 amount_by_category[category] += amount
             else:
@@ -96,15 +101,15 @@ def summarise_expenses(file_path, budget):
         print(f"Budget per day: \033[91m{daily_budget}\033[0m 📅")
 
 
-def view_expenses():
+#def view_expenses():
     # Code to view expenses
-    pass
+    #pass
 
-def adjust_budget():
+#def adjust_budget():
     # Code to adjust budget
-    pass
+    #pass
 
-while True:
+""" while True:
     print("\nExpense Tracker Menu:")
     print("1. Add Expense")
     print("2. View Expenses")
@@ -124,7 +129,7 @@ while True:
         break
     else:
         print("Invalid choice. Please choose a valid option (1/2/3/4).")
-
+ """
     # if remaining_days != 0:
     #     daily_budget = remaining_budget / remaining_days
     #     print(f"Budget per day: ${daily_budget:.2f}")
