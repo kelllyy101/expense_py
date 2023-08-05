@@ -11,9 +11,6 @@ def main():
     print(f"Running Expense Tracker!")
     expense = get_users_expense()
     save_expense_to_file(expense)
-    print(expense)
-    print(file_path)
-    print(budget)
     summarise_expenses(file_path, budget)
 
 def get_users_expense():
@@ -94,7 +91,7 @@ def summarise_expenses(file_path, budget):
     print(f"Budget per day: ${daily_budget:.2f}")
     print(f"You have {remaining_budget:.2f} this month!")
 
-    while daily_budget >= 20:
+    if daily_budget >= 20:
         print(f"Well done for staying in budget!")
     else:
         print("You've exceeded your budget!")
@@ -130,33 +127,7 @@ def summarise_expenses(file_path, budget):
     else:
         print("Invalid choice. Please choose a valid option (1/2/3/4).")
  """
-    # if remaining_days != 0:
-    #     daily_budget = remaining_budget / remaining_days
-    #     print(f"Budget per day: ${daily_budget:.2f}")
-    #     print(f"You have {remaining_budget:.2f} this month!")
-    # else:
-    #     if remaining_budget > 0:
-    #         daily_budget = remaining_budget
-    #         print(f"Budget per day: ${daily_budget:.2f}")
-    #         print(f"You have ${remaining_budget:.2f} remaining this month!")
-    #     else:
-    #         daily_budget = 0
-    #         print("Spend all your 💲💲💲")
-    #         print(f"You have 💰 this month!")  # Red color
-    #         print("You've exceeded your budget!")
-    #         print(f"Budget per day: \033[91m{daily_budget}\033[0m 📅")  # Red colo
 
-
-#    
-#     current_date = datetime.now()
-#     _, total_days_in_month = calendar.monthrange(current_date.year, current_date.month)
-#     remaining_days = total_days_in_month - current_date.day
-#     print("Remaining days in the current month:", remaining_days)
-
-#     daily_budget = remaining_budget / remaining_days
-#     print(f"Budget per day: ${daily_budget:.2f}") 
-#     
-      
 def get_expenses_by_category(file_path):
     print("Getting Expenses by Category")
     expenses_by_category = {}
