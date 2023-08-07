@@ -164,9 +164,8 @@ The Expense Tracker CLI aims to provide a comprehensive and user-friendly tool f
 
 ## Technologies
 
-- HTML
-- CSS
-- JavaScript
+- Python
+- pip for installing Python packages.
 - MongoDB (Database)
 - Flask (Python Framework)
 - Heroku
@@ -183,6 +182,22 @@ _(Include information about the overall testing strategy for the website)_
 _(Include a summary of the test results)_
 
 ## Deployment
+Heroku is a platform that allows you to deploy and host your applications, which is what I used for this expense tracker and these are the following steps I took:
+
+1. I signed up for a Heroku account at https://www.heroku.com/.
+
+2. I installed the Heroku Command Line Interface (CLI) on your system. This CLI tool lets you manage and deploy your Heroku apps from the command line.
+
+3. I ensured your project is in a Git repository. 
+
+4. A requirements.txt file and a Procfile was added from Code Institute's template so the project would deploy successfully.
+
+5. I created a new Heroku app using the Heroku CLI after I logged into my account and made sure my Git repository was connected.
+
+7. Before creating the app, I added two buildpacks from the Settings tab making sure to add heroku/python first, followed by heroku/nodejs.
+
+8. I deployed my project to Heroku by pushing your Git repository to Heroku's remote, that will update with every git push, as chosen by me in the settings, successfully integrating and deploying my project for use through the Heroku URL.
+
 
 ### Project Creation
 
