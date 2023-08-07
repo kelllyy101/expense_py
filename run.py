@@ -92,41 +92,11 @@ def summarise_expenses(file_path, budget):
     print(f"You have {remaining_budget:.2f} this month!")
 
     if daily_budget >= 20:
-        print(f"Well done for staying in budget!")
+        print(f"\033[92mWell done for staying in budget!\033[0m")
     else:
         print("You've exceeded your budget!")
         print(f"Budget per day: \033[91m{daily_budget}\033[0m 📅")
 
-
-#def view_expenses():
-    # Code to view expenses
-    #pass
-
-#def adjust_budget():
-    # Code to adjust budget
-    #pass
-
-""" while True:
-    print("\nExpense Tracker Menu:")
-    print("1. Add Expense")
-    print("2. View Expenses")
-    print("3. Adjust Budget")
-    print("4. Exit Tracker")
-
-    choice = input("Enter your choice (1/2/3/4): ")
-
-    if choice == "1":
-        add_expense()
-    elif choice == "2":
-        view_expenses()
-    elif choice == "3":
-        adjust_budget()
-    elif choice == "4":
-        print("Exiting Expense Tracker. Goodbye!")
-        break
-    else:
-        print("Invalid choice. Please choose a valid option (1/2/3/4).")
- """
 
 def get_expenses_by_category(file_path):
     print("Getting Expenses by Category")
@@ -134,7 +104,7 @@ def get_expenses_by_category(file_path):
     with open(file_path, "r") as f:
         lines = f.readlines()
         for line in lines:
-            expense_name, expense_amount, expense_category = line.strip().split(",")
+            name, amount, category = line.strip().split(",")
             expense_amount = float(expense_amount)
             if expense_category in expenses_by_category:
                 expenses_by_category[expense_category] += expense_amount
@@ -144,6 +114,32 @@ def get_expenses_by_category(file_path):
     print("Total Expenses by Category:")
     for category, total_amount in expenses_by_category.items():
         print(f"{category}: ${total_amount:.2f}")
+
+#def adjust_budget():
+    # Code to adjust budget
+    #pass
+
+while True:
+    print("\nExpense Tracker Menu:")
+    print("1. Add Expense")
+    print("2. View Expenses")
+    print("3. Adjust Budget")
+    print("4. Exit Tracker")
+
+    choice = input("Enter your choice (1/2/3/4): ")
+
+    if choice == "1":
+        get_users_expense()
+    elif choice == "2":
+        get_expenses_by_category(file_path)
+    elif choice == "3":
+        adjust_budget()
+    elif choice == "4":
+        print("Exiting Expense Tracker. Goodbye!")
+        break
+    else:
+        print("Invalid choice. Please choose a valid option (1/2/3/4).")
+
 
 if __name__ =="__main__":
     main()
