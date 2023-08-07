@@ -1,2 +1,9 @@
 Expense Name,Category,Amountfood,💸 Bills,98.0
 food,🎉 Fun,7.0
+/bin/python3 /home/kelly/code-institute/expense_py/run.py,🐶 Pets,99.0
+food,🚇 Transport,23.0
+coffee,🚇 Transport,23.0
+socks,👕 Clothes,3.0
+chicken,🚇 Transport,34.0
+food,🚇 Transport,34.54
+food,🚇 Transport,3.0

@@ -91,8 +91,10 @@ def summarise_expenses(file_path, budget):
     print(f"Budget per day: ${daily_budget:.2f}")
     print(f"You have {remaining_budget:.2f} this month!")
 
-    if daily_budget >= 20:
+    if daily_budget >= 100:
         print(f"\033[92mWell done for staying in budget!\033[0m")
+    elif daily_budget >= 20:
+        print(f"\033[38;5;208mBe careful, you're running low on money 💵💵💵\033[0m")
     else:
         print("You've exceeded your budget!")
         print(f"Budget per day: \033[91m{daily_budget}\033[0m 📅")
@@ -119,7 +121,7 @@ def get_expenses_by_category(file_path):
     # Code to adjust budget
     #pass
 
-while True:
+""" while True:
     print("\nExpense Tracker Menu:")
     print("1. Add Expense")
     print("2. View Expenses")
@@ -139,7 +141,7 @@ while True:
         break
     else:
         print("Invalid choice. Please choose a valid option (1/2/3/4).")
-
+ """
 
 if __name__ =="__main__":
     main()
