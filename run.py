@@ -35,7 +35,16 @@ def get_users_expense():
             print(f"{i + 1}. {category_name}")
 
         value_range = f"[1 - {len(expense_categories)}]"
-        selected_index = int(input(f"Enter a category number {value_range}: ")) - 1
+        while True:
+            try:
+                selected_index = int(input(f"Enter a category number {value_range}: ")) - 1
+                if 1 <= selected_index + 1 <= 10:  # Check if selected_index is within the range [1, 10]
+                    break
+                else:
+                    print("Invalid category number. Please enter a number between 1 and 10.")
+            except ValueError:
+                print("Invalid input. Please enter a valid number between 1 and 10.")
+        
 
         if selected_index in range(len(expense_categories)):
             selected_category = expense_categories[selected_index]
