@@ -99,7 +99,7 @@ def summarise_expenses(file_path, budget):
         print(f"Budget per day: 💲{daily_budget:.2f}")
         print(f"You have 💲{remaining_budget:.2f} this month! 📅")
         print(f"\033[92mWell done for staying in budget! 💰\033[0m")
-    elif daily_budget <= 20:
+    elif 0 < daily_budget <= 20:
         print(f"Budget per day: 💲{daily_budget:.2f}")
         print(f"You have 💲{remaining_budget:.2f} this month! 📅")
         print(f"\033[38;5;208mBe careful, you're running low on money 💵\033[0m")
