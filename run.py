@@ -47,7 +47,7 @@ def get_users_expense():
 
 
 def save_expense_to_file(expense):
-    with open(file_path, mode='a', newline='') as file:
+    with open(file_path, mode='a') as file:
         writer = csv.writer(file)
         writer.writerow([expense.name, expense.category, expense.amount])
 
@@ -103,9 +103,12 @@ def summarise_expenses(file_path, budget):
         print(f"Budget per day: 💲{daily_budget:.2f}")
         print(f"You have 💲{remaining_budget:.2f} this month! 📅")
         print(f"\033[38;5;208mBe careful, you're running low on money 💵\033[0m")
+    elif daily_budget <= 0:
+        print(f"\033[91m You\'ve exceeded your budget!\033[0m 🚫")
     else:
-        print("You've exceeded your budget!")
-        print(f"Budget per day: \033[91m{daily_budget}\033[0m 🚫")
+        print(f"Budget per day: 💲{daily_budget:.2f}")
+        print(f"You have 💲{remaining_budget:.2f} this month! 📅")
+        print("Your spending is on track. Keep it up! 💪")
 
 
 def get_expenses_by_category(file_path):
