@@ -12,6 +12,7 @@ def main():
     expense = get_users_expense()
     save_expense_to_file(expense)
     summarise_expenses(file_path, budget)
+    prompt_continue()
 
 def get_users_expense():
     print("Getting Users Expense")
@@ -107,7 +108,7 @@ def summarise_expenses(file_path, budget):
     if daily_budget >= 100:
         print(f"Budget per day: 💲{daily_budget:.2f}")
         print(f"You have 💲{remaining_budget:.2f} this month! 📅")
-        print(f"\033[92mWell done for staying in budget! 💰\033[0m")
+        print(f"\033[92m Wow well done for staying in budget! Maybe add some to your savings! 💰\033[0m")
     elif 0 < daily_budget <= 20:
         print(f"Budget per day: 💲{daily_budget:.2f}")
         print(f"You have 💲{remaining_budget:.2f} this month! 📅")
@@ -116,8 +117,8 @@ def summarise_expenses(file_path, budget):
         print(f"\033[91m You\'ve exceeded your budget!\033[0m 🚫")
     else:
         print(f"Budget per day: 💲{daily_budget:.2f}")
-        print(f"You have 💲{remaining_budget:.2f} this month! 📅")
-        print("Your spending is on track. Keep it up! 💪")
+        print(f"You have 💲{remaining_budget:.2f} remaining this month! 📅")
+        print(f"\033[92m Your spending is on track. Keep it up!\033[0m 💪")
 
 
 def get_expenses_by_category(file_path):
@@ -137,16 +138,56 @@ def get_expenses_by_category(file_path):
     for category, total_amount in expenses_by_category.items():
         print(f"{category}: ${total_amount:.2f}")
 
-#def adjust_budget():
-    # Code to adjust budget
-    #pass
+def adjust_budget():
+    global budget  # Declare 'budget' as global to modify it in this function
+    while True:
+        try:
+            new_budget = float(input("Enter the new budget: "))
+            if new_budget >= 0:
+                budget = new_budget
+                print(f"Budget adjusted to: {budget:.2f} 💰📊")
+                break
+            else:
+                print("Invalid input. Please enter a non-negative number for the new budget.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+
+def prompt_continue():
+    
+    while True:
+        choice = input("Do you want to perform another action? (y/n): ").lower()
+        if choice == 'y':
+            print("\nExpense Tracker Menu:")
+            print("1. Add Expense 💸💰")
+            print("2. View Expenses 👀📜")
+            print("3. Adjust Budget 📊✏️")
+            print("4. Exit Tracker 👋")
+
+            choice = input("Enter your choice (1/2/3/4): ")
+
+            if choice == "1":
+                get_users_expense()
+            elif choice == "2":
+                get_expenses_by_category(file_path)
+            elif choice == "3":
+                adjust_budget()
+            elif choice == "4":
+                print("Exiting Expense Tracker. Goodbye!👋😊")
+                break
+            else:
+                print("Invalid choice. Please choose a valid option (1/2/3/4).")
+        elif choice == 'n':
+            print("Exiting Expense Tracker. Goodbye!👋😊")
+            return False
+        else:
+            print("Invalid input. Please enter 'y' for yes or 'n' for no.")
 
 """ while True:
     print("\nExpense Tracker Menu:")
-    print("1. Add Expense")
-    print("2. View Expenses")
-    print("3. Adjust Budget")
-    print("4. Exit Tracker")
+    print("1. Add Expense 💸💰")
+    print("2. View Expenses 👀📜")
+    print("3. Adjust Budget 📊✏️")
+    print("4. Exit Tracker 👋")
 
     choice = input("Enter your choice (1/2/3/4): ")
 
@@ -157,11 +198,13 @@ def get_expenses_by_category(file_path):
     elif choice == "3":
         adjust_budget()
     elif choice == "4":
-        print("Exiting Expense Tracker. Goodbye!")
+        print("Exiting Expense Tracker. Goodbye!👋😊")
         break
     else:
         print("Invalid choice. Please choose a valid option (1/2/3/4).")
- """
+    if not prompt_continue():
+        print("Exiting Expense Tracker. Goodbye!👋😊")
+        break """
 
 if __name__ =="__main__":
     main()
