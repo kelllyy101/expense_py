@@ -16,8 +16,14 @@ def main():
 def get_users_expense():
     print("Getting Users Expense")
     expense_name = input("Enter expense name: ")
-    expense_amount = float(input("Enter expense amount: "))
-    print(f"You've entered {expense_name}, {expense_amount}")
+    while True:
+        try:
+            expense_amount = float(input("Enter expense amount: "))
+            print(f"You've entered {expense_name}, {expense_amount}")
+            break
+        except ValueError:
+            print("Please enter valid numbers for the expense amount.")
+
 
     expense_categories = [
         "🍔 Food", "🏠 House", "🚇 Transport", "💊 Health", "🚙 Car", "👕 Clothes", "🎉 Fun", "💸 Bills", "🐶 Pets", "🍴 Restaurants"
@@ -79,7 +85,7 @@ def summarise_expenses(file_path, budget):
         print(f"{category}: ${amount:.2f}")
 
     total_spent = sum([x.amount for x in expenses])
-    print(f"You've spent {total_spent:.2f} this month!")
+    print(f"You've spent 💲{total_spent:.2f} this month!")
 
     remaining_budget = budget - total_spent
     current_date = datetime.now()
@@ -88,16 +94,18 @@ def summarise_expenses(file_path, budget):
     print("Remaining days in the current month:", remaining_days)
 
     daily_budget = remaining_budget / remaining_days
-    print(f"Budget per day: ${daily_budget:.2f}")
-    print(f"You have {remaining_budget:.2f} this month!")
 
     if daily_budget >= 100:
-        print(f"\033[92mWell done for staying in budget!\033[0m")
-    elif daily_budget >= 20:
-        print(f"\033[38;5;208mBe careful, you're running low on money 💵💵💵\033[0m")
+        print(f"Budget per day: 💲{daily_budget:.2f}")
+        print(f"You have 💲{remaining_budget:.2f} this month! 📅")
+        print(f"\033[92mWell done for staying in budget! 💰\033[0m")
+    elif daily_budget <= 20:
+        print(f"Budget per day: 💲{daily_budget:.2f}")
+        print(f"You have 💲{remaining_budget:.2f} this month! 📅")
+        print(f"\033[38;5;208mBe careful, you're running low on money 💵\033[0m")
     else:
         print("You've exceeded your budget!")
-        print(f"Budget per day: \033[91m{daily_budget}\033[0m 📅")
+        print(f"Budget per day: \033[91m{daily_budget}\033[0m 🚫")
 
 
 def get_expenses_by_category(file_path):
