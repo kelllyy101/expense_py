@@ -121,22 +121,38 @@ def summarise_expenses(file_path, budget):
         print(f"\033[92m Your spending is on track. Keep it up!\033[0m 💪")
 
 
-def get_expenses_by_category(file_path):
+def group_expenses_by_category(expenses):
+    amount_by_category = {}
+    for expense in expenses:
+        amount = expense.amount
+        category = expense.category
+        if category in amount_by_category:
+            amount_by_category[category] += amount
+        else:
+            amount_by_category[category] = amount
+    return amount_by_category
+
+
+def display_expenses_by_category(file_path):
     print("Getting Expenses by Category")
-    expenses_by_category = {}
-    with open(file_path, "r") as f:
-        lines = f.readlines()
+    expenses = []
+    with open(file_path, "r") as csv_file:
+        lines = csv_file.readlines()
         for line in lines:
             name, amount, category = line.strip().split(",")
-            expense_amount = float(expense_amount)
-            if expense_category in expenses_by_category:
-                expenses_by_category[expense_category] += expense_amount
-            else:
-                expenses_by_category[expense_category] = expense_amount
+            expense = Expense(
+                name=name,
+                category=category,
+                amount=amount,
+            )
+            expenses.append(expense)
 
+    exp_by_cat = group_expenses_by_category(expenses)
+    
     print("Total Expenses by Category:")
-    for category, total_amount in expenses_by_category.items():
-        print(f"{category}: ${total_amount:.2f}")
+    for category, total_amount in exp_by_cat.items():
+        print(f"{category}: {total_amount}")
+
 
 def adjust_budget():
     global budget  # Declare 'budget' as global to modify it in this function
@@ -168,7 +184,7 @@ def prompt_continue():
             if choice == "1":
                 get_users_expense()
             elif choice == "2":
-                get_expenses_by_category(file_path)
+                display_expenses_by_category(file_path)
             elif choice == "3":
                 adjust_budget()
             elif choice == "4":
@@ -181,30 +197,6 @@ def prompt_continue():
             return False
         else:
             print("Invalid input. Please enter 'y' for yes or 'n' for no.")
-
-""" while True:
-    print("\nExpense Tracker Menu:")
-    print("1. Add Expense 💸💰")
-    print("2. View Expenses 👀📜")
-    print("3. Adjust Budget 📊✏️")
-    print("4. Exit Tracker 👋")
-
-    choice = input("Enter your choice (1/2/3/4): ")
-
-    if choice == "1":
-        get_users_expense()
-    elif choice == "2":
-        get_expenses_by_category(file_path)
-    elif choice == "3":
-        adjust_budget()
-    elif choice == "4":
-        print("Exiting Expense Tracker. Goodbye!👋😊")
-        break
-    else:
-        print("Invalid choice. Please choose a valid option (1/2/3/4).")
-    if not prompt_continue():
-        print("Exiting Expense Tracker. Goodbye!👋😊")
-        break """
 
 if __name__ =="__main__":
     main()

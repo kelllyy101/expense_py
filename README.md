@@ -166,8 +166,6 @@ The Expense Tracker CLI aims to provide a comprehensive and user-friendly tool f
 
 - Python
 - pip for installing Python packages.
-- MongoDB (Database)
-- Flask (Python Framework)
 - Heroku
 - GitHub
 
