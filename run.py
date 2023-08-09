@@ -91,10 +91,8 @@ def save_expense_to_file(expense):
     print(f"Saving User Expense: {expense}")
 
 
-def summarise_expenses(file_path, budget):
-    print("Summarising User Expense")
-    expenses: list[Expense] = []
-    amount_by_category = {}
+def get_expenses(file_path):
+    expenses = []
     with open(file_path, "r") as f:
         i = 0
         for line in f.readlines():
@@ -109,12 +107,15 @@ def summarise_expenses(file_path, budget):
                 amount=amount,
             )
             expenses.append(line_expense)
+    
+    return expenses
 
-            if category in amount_by_category:
-                amount_by_category[category] += amount
-            else:
-                amount_by_category[category] = amount
 
+def summarise_expenses(file_path, budget):
+    print("Summarising User Expense")
+    expenses = get_expenses(file_path)
+    amount_by_category = group_expenses_by_category(expenses)
+    
     print("What you have spent by Category")
     for category, amount in amount_by_category.items():
         print(f"{category}: ${amount:.2f}")
@@ -162,21 +163,7 @@ def group_expenses_by_category(expenses):
 
 def display_expenses_by_category(file_path):
     print("Getting Expenses by Category")
-    expenses = []
-    with open(file_path, "r") as csv_file:
-        i = 0
-        for line in csv_file.readlines():
-            if i == 0:
-                i += 1
-                continue
-            name, category, amount = line.strip().split(",")
-            expense = Expense(
-                name=name,
-                category=category,
-                amount=amount,
-            )
-            expenses.append(expense)
-
+    expenses = get_expenses(file_path)
     exp_by_cat = group_expenses_by_category(expenses)
 
     print("Total Expenses by Category:")
