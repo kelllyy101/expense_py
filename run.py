@@ -55,7 +55,7 @@ def get_users_expense():
         value_range = f"[1 - {len(expense_categories)}]"
         while True:
             try:
-                prompt = f"Enter a category number 1-{value_range}: "
+                prompt = f"Enter a category number {value_range}: "
                 selected_index = int(input(prompt)) - 1
                 if 1 <= selected_index + 1 <= 10:
                     break
