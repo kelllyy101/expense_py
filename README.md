@@ -15,6 +15,7 @@ ExpensePy Tracker CLI is a command-line tool designed to help users efficiently 
   - [User Stories](#user-stories)
 - [The Scope Plane](#the-scope-plane)
 - [The Structure Plane](#the-structure-plane)
+  - [Main Structure](#main-menu)
 - [The Skeleton Plane](#the-skeleton-plane)
   - [Wireframes](#wireframes)
 - [The Surface Plane](#the-surface-plane)
@@ -111,8 +112,111 @@ The Expense Tracker CLI aims to provide a comprehensive and user-friendly tool f
 
 
 ## The Structure Plane
+User Experience and Navigation
+Title Display:
+
+Upon launching the CLI, display a colored title: "ExpensePy - The Best Expense Tracker App."
+### Main Menu:
+
+After the title, present the main menu options:
+"1. Add Expense 💸💰"
+"2. View Expenses 👀📜"
+"3. Adjust Budget 📊✏️"
+"4. Exit Tracker 👋"
+Navigation Loop:
+
+Use a loop to continuously prompt the user for their choice until they choose to exit.
+Adding Expense
+Get Expense Details:
+
+When the user selects "1" from the main menu, prompt for:
+Expense name
+Expense amount (with validation for positive numbers)
+Select Expense Category:
+
+Display the list of expense categories.
+Prompt the user to select a category by entering a number within the valid range (1-10).
+Expense Object Creation:
+
+Create an Expense object with the provided name, validated amount, and selected category.
+Save the expense to the CSV file.
+Viewing Expenses
+Display Expenses by Category:
+
+When the user selects "2" from the main menu, read and parse the CSV file.
+Group expenses by category and calculate the total amount spent in each category.
+Calculate Total Spent:
+
+Calculate the total amount spent across all categories.
+Remaining Budget and Budget Per Day:
+
+Calculate the remaining budget based on the initial budget and total spent.
+Calculate the budget per day based on the remaining budget and days left in the month.
+Display Results:
+
+Display the grouped expenses with category totals.
+Show the total spent this month.
+Display remaining budget, budget per day, and corresponding color-coded messages based on budget status.
+Adjusting Budget
+Prompt for New Budget:
+
+When the user selects "3" from the main menu, prompt for a new budget amount.
+Validation and Update:
+
+Use try-except to handle invalid input for the new budget (positive numbers only).
+If the input is valid, update the global budget variable.
+Exiting the App
+Exiting Prompt:
+
+When the user selects "4" from the main menu, display a goodbye message and exit the app.
+Prompt Continue:
+
+After each action, prompt the user if they want to perform another action (y/n).
+If yes, display the main menu; if no, exit the app.
 
 ## The Skeleton Plane
+
+ExpensePy the Best Expense Tracker App
+
+
+**         MAIN MENU          **
+********************************
+1. First option is for the user to add expense(user experience simple, quick and efficient)
+
+E.g Running Expense Tracker!
+    Getting Users Expense#
+
+**         SHOW EXPENSE       **
+********************************
+2. They will be prompted to give the expense a name, amount and  category
+
+E.g Enter expense name: food
+    Enter expense amount: 343
+    You've entered food, 343.0
+
+**         BUDGET         **
+********************************
+3. Remaining budget for the month will appear, with different coloured prompts, depending on whether or not user is sticking to budget.
+
+E.g Remaining days in the current month: 23
+    Budget per day: 💲50.30
+    You have 💲1157.00 remaining this month! 📅
+    Your spending is on track. Keep it up! 💪
+
+
+**         MAIN MENU          **
+********************************
+4. User will be prompted to add another action or exit tracker with either a y or n value.
+
+E.g Expense Tracker Menu:
+    1. Add Expense 💸💰
+    2. View Expenses 👀📜
+    3. Adjust Budget 📊✏️
+    4. Exit Tracker 👋
+    Enter your choice (1/2/3/4): 
+
+  5. The menu will keep appearing until the user decides to exit the app.
+
 
 ## The Surface Plane
 The "Surface Plane" involves the design and user interface aspects of your Expense Tracker CLI.
