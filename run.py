@@ -5,7 +5,8 @@ from datetime import datetime
 import calendar
 
 file_path = "expenses.csv"
-budget = 1500 
+budget = 1500
+
 
 def main():
     print(f"Running Expense Tracker!")
@@ -13,6 +14,7 @@ def main():
     save_expense_to_file(expense)
     summarise_expenses(file_path, budget)
     prompt_continue()
+
 
 def get_users_expense():
     print("Getting Users Expense")
@@ -24,10 +26,9 @@ def get_users_expense():
             break
         except ValueError:
             print("Please enter valid numbers for the expense amount.")
-
-
     expense_categories = [
-        "🍔 Food", "🏠 House", "🚇 Transport", "💊 Health", "🚙 Car", "👕 Clothes", "🎉 Fun", "💸 Bills", "🐶 Pets", "🍴 Restaurants"
+        "🍔 Food", "🏠 House", "🚇 Transport", "💊 Health", "🚙 Car",
+        "👕 Clothes", "🎉 Fun", "💸 Bills", "🐶 Pets", "🍴 Restaurants"
     ]
 
     while True:
@@ -38,19 +39,22 @@ def get_users_expense():
         value_range = f"[1 - {len(expense_categories)}]"
         while True:
             try:
-                selected_index = int(input(f"Enter a category number {value_range}: ")) - 1
-                if 1 <= selected_index + 1 <= 10:  # Check if selected_index is within the range [1, 10]
+                prompt = f"Enter a category number 1-{value_range}: "
+                selected_index = int(input(prompt)) - 1
+                if 1 <= selected_index + 1 <= 10:
                     break
                 else:
-                    print("Invalid category number. Please enter a number between 1 and 10.")
+                    print("Please enter a number between 1 and 10.")
             except ValueError:
-                print("Invalid input. Please enter a valid number between 1 and 10.")
-        
+                print("Please enter a valid number between 1 and 10.")
 
         if selected_index in range(len(expense_categories)):
             selected_category = expense_categories[selected_index]
-            new_expense = Expense(name=expense_name, category=selected_category, amount=expense_amount
-            )
+            new_expense = Expense(
+                name=expense_name,
+                category=selected_category,
+                amount=expense_amount
+                                 )
             return new_expense
         else:
             print("Category does not exist. Please try again!")
@@ -63,6 +67,7 @@ def save_expense_to_file(expense):
 
     print(f"Expense data saved to {file_path}.")
     print(f"Saving User Expense: {expense}")
+
 
 def summarise_expenses(file_path, budget):
     print("Summarising User Expense")
@@ -97,7 +102,8 @@ def summarise_expenses(file_path, budget):
 
     remaining_budget = budget - total_spent
     current_date = datetime.now()
-    _, total_days_in_month = calendar.monthrange(current_date.year, current_date.month)
+    _, total_days_in_month = calendar.monthrange(
+        current_date.year, current_date.month)
     remaining_days = total_days_in_month - (current_date.day - 1)
     print("Remaining days in the current month:", remaining_days)
 
@@ -106,11 +112,11 @@ def summarise_expenses(file_path, budget):
     if daily_budget >= 100:
         print(f"Budget per day: 💲{daily_budget:.2f}")
         print(f"You have 💲{remaining_budget:.2f} this month! 📅")
-        print(f"\033[92m Wow well done for staying in budget! Maybe add some to your savings! 💰\033[0m")
+        print(f"\033[92m Well done for staying in budget! 💰\033[0m")
     elif 0 < daily_budget <= 20:
         print(f"Budget per day: 💲{daily_budget:.2f}")
         print(f"You have 💲{remaining_budget:.2f} this month! 📅")
-        print(f"\033[38;5;208mBe careful, you're running low on money 💵\033[0m")
+        print(f"\033[38;5;208m You're running low on money 💵\033[0m")
     elif daily_budget <= 0:
         print(f"\033[91m You\'ve exceeded your budget!\033[0m 🚫")
     else:
@@ -150,7 +156,7 @@ def display_expenses_by_category(file_path):
             expenses.append(expense)
 
     exp_by_cat = group_expenses_by_category(expenses)
-    
+
     print("Total Expenses by Category:")
     for category, total_amount in exp_by_cat.items():
         print(f"{category}: {total_amount}")
@@ -166,14 +172,14 @@ def adjust_budget():
                 print(f"Budget adjusted to: {budget:.2f} 💰📊")
                 break
             else:
-                print("Invalid input. Please enter a non-negative number for the new budget.")
+                print("Please enter a positive number for the new budget.")
         except ValueError:
             print("Invalid input. Please enter a valid number.")
 
+
 def prompt_continue():
-    
     while True:
-        choice = input("Do you want to perform another action? (y/n): ").lower()
+        choice = input("Do you want to add another action? (y/n): ").lower()
         if choice == 'y':
             print("\nExpense Tracker Menu:")
             print("1. Add Expense 💸💰")
@@ -195,12 +201,13 @@ def prompt_continue():
                 print("Exiting Expense Tracker. Goodbye!👋😊")
                 break
             else:
-                print("Invalid choice. Please choose a valid option (1/2/3/4).")
+                print("Invalid choice. Please choose a valid option (1/2/3/4)")
         elif choice == 'n':
             print("Exiting Expense Tracker. Goodbye!👋😊")
             return False
         else:
             print("Invalid input. Please enter 'y' for yes or 'n' for no.")
 
-if __name__ =="__main__":
+
+if __name__ == "__main__":
     main()
