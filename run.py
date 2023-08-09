@@ -12,6 +12,7 @@ budget = 1500
 # Initialize colorama
 init(autoreset=True)
 
+
 def print_colored_title(title):
     colored_title = f"{Fore.BLUE}{Style.BRIGHT}{title}{Style.RESET_ALL}"
     print(colored_title)
