@@ -81,9 +81,7 @@ def summarise_expenses(file_path, budget):
                 category=category,
                 amount=amount,
             )
-            print(line_expense)
             expenses.append(line_expense)
-            print(expenses)
 
             if category in amount_by_category:
                 amount_by_category[category] += amount
@@ -125,6 +123,7 @@ def group_expenses_by_category(expenses):
     amount_by_category = {}
     for expense in expenses:
         amount = expense.amount
+        amount = float(amount)
         category = expense.category
         if category in amount_by_category:
             amount_by_category[category] += amount
@@ -137,9 +136,12 @@ def display_expenses_by_category(file_path):
     print("Getting Expenses by Category")
     expenses = []
     with open(file_path, "r") as csv_file:
-        lines = csv_file.readlines()
-        for line in lines:
-            name, amount, category = line.strip().split(",")
+        i = 0
+        for line in csv_file.readlines():
+            if i == 0:
+                i += 1
+                continue
+            name, category, amount = line.strip().split(",")
             expense = Expense(
                 name=name,
                 category=category,
