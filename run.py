@@ -3,9 +3,21 @@ import csv
 import os
 from datetime import datetime
 import calendar
+from colorama import init, Fore, Style
 
 file_path = "expenses.csv"
 budget = 1500
+
+
+# Initialize colorama
+init(autoreset=True)
+
+def print_colored_title(title):
+    colored_title = f"{Fore.BLUE}{Style.BRIGHT}{title}{Style.RESET_ALL}"
+    print(colored_title)
+
+
+print_colored_title("ExpensePy - The Best Expense Tracker App")
 
 
 def main():
@@ -22,8 +34,11 @@ def get_users_expense():
     while True:
         try:
             expense_amount = float(input("Enter expense amount: "))
-            print(f"You've entered {expense_name}, {expense_amount}")
-            break
+            if expense_amount > 0:
+                print(f"You've entered {expense_name}, {expense_amount}")
+                break
+            else:
+                print("Please enter a positive number.")
         except ValueError:
             print("Please enter valid numbers for the expense amount.")
     expense_categories = [
