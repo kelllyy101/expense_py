@@ -184,7 +184,9 @@ def prompt_continue():
             choice = input("Enter your choice (1/2/3/4): ")
 
             if choice == "1":
-                get_users_expense()
+                expense = get_users_expense()
+                save_expense_to_file(expense)
+                summarise_expenses(file_path, budget)
             elif choice == "2":
                 display_expenses_by_category(file_path)
             elif choice == "3":
