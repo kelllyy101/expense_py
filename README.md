@@ -17,7 +17,7 @@ ExpensePy Tracker CLI is a command-line tool designed to help users efficiently 
 - [The Structure Plane](#the-structure-plane)
   - [Main Structure](#main-menu)
 - [The Skeleton Plane](#the-skeleton-plane)
-  - [Wireframes](#wireframes)
+  - [Design Flow](#Design Flow)
 - [The Surface Plane](#the-surface-plane)
   - [Design](#design)
   - [Colour Scheme](#colour-scheme)
@@ -175,6 +175,7 @@ After each action, prompt the user if they want to perform another action (y/n).
 If yes, display the main menu; if no, exit the app.
 
 ## The Skeleton Plane
+### Design Flow
 
 ExpensePy the Best Expense Tracker App
 
@@ -333,9 +334,9 @@ I reviewed my README and other documentation to ensure they accurately reflected
 
 ### Test Results
 
+![User Stories Testing](/assets/screenshots/Captura%20de%20pantalla%20(661).png)
 ![User Stories Testing](/assets/screenshots/Captura%20de%20pantalla%20(658).png)
 ![User Stories Testing](/assets/screenshots/Captura%20de%20pantalla%20(660).png)
-![User Stories Testing](/assets/screenshots/Captura%20de%20pantalla%20(661).png)
 ![LightHouse Performance Test](/assets/screenshots/Captura%20de%20pantalla%20(651).png)
 
 <details>
