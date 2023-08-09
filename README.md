@@ -345,6 +345,8 @@ I reviewed my README and other documentation to ensure they accurately reflected
 
 </details>
 
+I've ensured that my code is error-free and all validation checks have been implemented, meeting the requirements for documenting logic planning, addressing validation errors, and performing manual code testing.
+
 ## Deployment
 Heroku is a platform that allows you to deploy and host your applications, which is what I used for this expense tracker and these are the following steps I took:
 

@@ -1,8 +1,14 @@
+# Importing the Expense class to use for creating expense objects
 from expense import Expense
+# Importing the csv library to handle CSV file operations
 import csv
+# Importing the os library for interacting with the operating system, e.g., file paths
 import os
+# Importing the datetime class from the datetime library for working with dates and times
 from datetime import datetime
+# Importing the calendar module to work with calendar-related functions (e.g., monthrange)
 import calendar
+# Importing the init function, Fore, and Style classes from the colorama library to add color and style to terminal output
 from colorama import init, Fore, Style
 
 file_path = "expenses.csv"
@@ -20,7 +26,7 @@ def print_colored_title(title):
 
 print_colored_title("ExpensePy - The Best Expense Tracker App")
 
-
+# Main code taken from various YouTube Tutorials
 def main():
     print(f"Running Expense Tracker!")
     expense = get_users_expense()
