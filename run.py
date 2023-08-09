@@ -2,13 +2,13 @@
 from expense import Expense
 # Importing the csv library to handle CSV file operations
 import csv
-# Importing the os library for interacting with the operating system, e.g., file paths
+# Importing the os library for interacting with the operating system
 import os
-# Importing the datetime class from the datetime library for working with dates and times
+# Importing the datetime class from the datetime library
 from datetime import datetime
-# Importing the calendar module to work with calendar-related functions (e.g., monthrange)
+# Importing the calendar module to work with calendar-related functions
 import calendar
-# Importing the init function, Fore, and Style classes from the colorama library to add color and style to terminal output
+# Importing init function, Fore, and Style classes from the colorama library
 from colorama import init, Fore, Style
 
 file_path = "expenses.csv"
@@ -25,6 +25,7 @@ def print_colored_title(title):
 
 
 print_colored_title("ExpensePy - The Best Expense Tracker App")
+
 
 # Main code taken from various YouTube Tutorials
 def main():
@@ -107,7 +108,7 @@ def get_expenses(file_path):
                 amount=amount,
             )
             expenses.append(line_expense)
-    
+
     return expenses
 
 
@@ -115,7 +116,7 @@ def summarise_expenses(file_path, budget):
     print("Summarising User Expense")
     expenses = get_expenses(file_path)
     amount_by_category = group_expenses_by_category(expenses)
-    
+
     print("What you have spent by Category")
     for category, amount in amount_by_category.items():
         print(f"{category}: ${amount:.2f}")
