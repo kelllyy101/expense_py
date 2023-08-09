@@ -266,8 +266,70 @@ Font choices are not applicable in a text-based CLI application.
 ## Testing
 
 ### Test Strategy
+1. Code Structure and Style Testing (PEP8):
+I ran my code through a PEP8 linter to ensure it adhered to Python's style guidelines.
+I corrected any formatting issues or violations reported by the linter.
 
-_(Include information about the overall testing strategy for the website)_
+2. Functionality Testing with Print Statements:
+I inserted print statements at key points in my code to confirm the execution flow.
+For example, I added print statements at the beginning of each function to ensure they were being called.
+I ran the app and verified that the print statements showed up at the expected points.
+
+3.User Testing (Creator as User):
+I pretended I was a user and went through various scenarios to test the app's functionality.
+I added expenses, viewed expenses by category, adjusted the budget, and exited the app.
+I tested with both valid and invalid inputs to ensure the app handled them gracefully.
+
+4. End-to-End Testing:
+I created test cases that simulated the entire user journey from start to finish.
+This included scenarios like adding expenses, viewing expenses, and adjusting the budget in one go.
+I also inputted symbols, letters and numbers to test user input validation, ensuring that it will be handled appropriately, for example, an error message when a symbol is entered for an amount float value.
+
+E.g Enter expense amount: ///
+    Please enter valid numbers for the expense amount.
+    Enter expense amount: 
+
+5. Budget Adjustment Testing:
+I tested the budget adjustment functionality.
+I checked that the budget was updated correctly and that I received appropriate feedback.
+
+E.g Enter the new budget: 23232
+    Budget adjusted to: 23232.00 💰📊
+
+6. Error Handling Testing:
+I intentionally input incorrect data (e.g., non-numeric values) to test the app's error handling.
+I verified that the app displayed meaningful error messages and handled the errors gracefully.
+
+E.g Invalid choice. Please choose a valid option (1/2/3/4)
+
+7. Integration Testing:
+I tested the interactions between different functions and components of the app.
+I verified that data flowed correctly and the app behaved as expected.
+
+8.Visual Testing (Lighthouse or Similar Tools):
+I used tools like Lighthouse to evaluate web accessibility, performance, and best practices since I planned to deploy the app on a web platform.
+I addressed any issues identified by the tool to enhance the app's overall quality.
+
+9. User Experience Testing:
+I ensured that the app's prompts and messages were clear and user-friendly.
+I tested the navigation flow to ensure users could easily move between different features.
+
+10. Manual Testing of Different Scenarios:
+I tested various combinations of actions to identify any potential conflicts or unexpected behavior.
+For example, I added expenses, adjusted the budget, viewed expenses, and exited the app in different orders.
+
+11. Boundary Testing:
+I tested the app with extreme inputs, such as very large or very small values for expenses and budget.
+I verified that the app handled these inputs without crashing or producing incorrect results.
+
+E.g You've spent 💲234234342343243904.00 this month!
+
+12. Cross-Platform Testing:
+I tested the app on different platforms (Windows, macOS, Linux) to ensure compatibility.
+I verified that the app ran and behaved consistently on all platforms.
+
+13. Documentation Review:
+I reviewed my README and other documentation to ensure they accurately reflected the app's features and usage instructions.
 
 ### Test Results
 
