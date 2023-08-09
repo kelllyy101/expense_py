@@ -85,9 +85,11 @@ User Stories for the Expense Tracker CLI:
 
 3. As a user, I want the Expense Tracker CLI to be responsive and adapt to different devices, including mobile phones, tablets, and desktop computers. This ensures that I can conveniently track my expenses regardless of the device I am using.
 
-4. As a user, I want to search and filter expenses based on custom criteria to find specific transactions quickly. The CLI should support filtering by date, category, amount range, and other relevant parameters.
+4. As a user, I want to view and filter expenses based on their category.
 
-5. As a user, I want the Expense Tracker CLI to provide a seamless navigation experience, allowing me to return to the main menu or home screen without relying on browser buttons. This ensures a smooth user experience and prevents unnecessary disruptions while using the tool.
+5. As a user, I want to be able to add a budget, and adjust it whenever I like, as well as wanting to see budget reminders when I add expenses to keep me on track.
+
+6. As a user, I want the Expense Tracker CLI to provide a seamless navigation experience, allowing me to choose actions from the menu or exit the app without relying on browser buttons. 
 
 ## The Scope Plane
 
@@ -146,7 +148,17 @@ _(Include information about the overall testing strategy for the website)_
 
 ### Test Results
 
-_(Include a summary of the test results)_
+![User Stories Testing](/assets/screenshots/Captura%20de%20pantalla%20(658).png)
+![User Stories Testing](/assets/screenshots/Captura%20de%20pantalla%20(660).png)
+![User Stories Testing](/assets/screenshots/Captura%20de%20pantalla%20(661).png)
+![LightHouse Performance Test](/assets/screenshots/Captura%20de%20pantalla%20(651).png)
+
+<details>
+<summary>PEP8 Online Validation - run.py</summary>
+
+![](/assets/screenshots/Captura%20de%20pantalla%20(647).png)
+
+</details>
 
 ## Deployment
 Heroku is a platform that allows you to deploy and host your applications, which is what I used for this expense tracker and these are the following steps I took:
