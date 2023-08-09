@@ -5,7 +5,7 @@
 
 ExpensePy Tracker CLI is a command-line tool designed to help users efficiently manage and track their expenses with 10 different categories. With its user-friendly interface and powerful features, this tool allows individuals to record their daily expenditures, categorise expenses, set budget limits, and generate detailed expense reports. The Expense Tracker CLI is built on Python, utilising various libraries and modules to ensure seamless data handling and smooth user interactions. Whether you're a budget-conscious individual or a business owner looking to monitor expenses, this CLI tool provides a convenient and effective solution for keeping financial matters under control with reminders of your budget each time you enter an expense.
 
-![Mockup](/path/to/mockup.png) _(Add mockup)_
+![Mockup of ExpensePy](/assets/screenshots/Captura%20de%20pantalla%20(662).png)
 
 ## Table of Contents
 
@@ -17,14 +17,10 @@ ExpensePy Tracker CLI is a command-line tool designed to help users efficiently 
 - [The Structure Plane](#the-structure-plane)
 - [The Skeleton Plane](#the-skeleton-plane)
   - [Wireframes](#wireframes)
-- [Database Design](#database-design)
-- [Security](#security)
 - [The Surface Plane](#the-surface-plane)
   - [Design](#design)
   - [Colour Scheme](#colour-scheme)
   - [Typography](#typography)
-  - [Imagery](#imagery)
-  - [Differences to Design](#differences-to-design)
 - [Features](#features)
   - [Existing Features](#existing-features)
   - [Future Features](#future-features)
@@ -116,6 +112,29 @@ The Expense Tracker CLI aims to provide a comprehensive and user-friendly tool f
 
 ## The Structure Plane
 
+## The Skeleton Plane
+
+## The Surface Plane
+The "Surface Plane" involves the design and user interface aspects of your Expense Tracker CLI.
+
+### Design
+I utilised color formatting with the colorama library for visually appealing outputs.
+Provide clear and informative prompts, messages, and error handling.
+Implement loops for repeated interactions and user-friendliness.
+Maintain a simple and intuitive user experience.
+
+### Colour Scheme
+The color scheme incorporates colorama's color formatting to enhance the user experience. For example:
+Title and important information: Blue
+Positive messages: Green
+Warning and budget alerts: Red and yellow
+Emojis for added user experience
+
+### Typography
+Font choices are not applicable in a text-based CLI application.
+
+
+## Features
 ### Existing Features
 - User-friendly CLI interface
 - Expense entry with amount, category, and name
